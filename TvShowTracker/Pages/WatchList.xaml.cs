@@ -23,6 +23,10 @@ namespace TvShowTracker
         public WatchList()
         {
             InitializeComponent();
+            ShowData shows = new ShowData();
+
+            List<Episode> Watchlist = shows.getWatchlist();
+
         }
     }
 }

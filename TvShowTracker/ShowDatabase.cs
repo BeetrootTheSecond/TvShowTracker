@@ -117,8 +117,8 @@ namespace TvShowTracker
             }
 
 
-            
 
+            return db.Shows.Where(x => x.TmdbId == TmdbID).FirstOrDefault();
         }
 
 
@@ -127,7 +127,7 @@ namespace TvShowTracker
         {
             var db = new ShowDatabase();
             List<Episode> Watchlist = new List<Episode>();
-            foreach(var watchEpisode in db.Episodes.Where(x => x.Watched == true))
+            foreach(var watchEpisode in db.Episodes.Where(x => x.Watched == false))
             {
                 Watchlist.Add(watchEpisode);
             }
