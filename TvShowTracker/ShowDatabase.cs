@@ -66,14 +66,15 @@ namespace TvShowTracker
 
     public class ShowData
     {
-
+        public static ShowDatabase db = new ShowDatabase();
+        private string apikey = "dc21e8c3cb3e79d39f776b428b13222c";
         public Show getShow(int TmdbID)
         {
-            var db = new ShowDatabase();
+
 
             if (db.Shows.Where(x => x.TmdbId == TmdbID).Count() == 0)
             {
-                var apikey = "dc21e8c3cb3e79d39f776b428b13222c";
+
                 TMDbClient client = new TMDbClient(apikey);
 
                 TvShow tvshow = client.GetTvShowAsync(TmdbID).Result;
@@ -115,25 +116,33 @@ namespace TvShowTracker
                 db.Shows.Add(show);
                 db.SaveChanges();
             }
-
-
-
+            
             return db.Shows.Where(x => x.TmdbId == TmdbID).FirstOrDefault();
         }
 
 
 
-        public List<Episode> getWatchlist()
+        public List<Show> getWatchlist()
         {
-            var db = new ShowDatabase();
-            List<Episode> Watchlist = new List<Episode>();
-            foreach(var watchEpisode in db.Episodes.Where(x => x.Watched == false))
-            {
-                Watchlist.Add(watchEpisode);
-            }
-
-            return Watchlist;
+            return db.Shows.Where(x =>
+                x.Seasons.Where(y =>
+                    y.Episodes.Where(zz =>
+                        zz.Watched == false
+                    ).Count() > 0
+                ).Count() > 0
+            ).ToList();
         }
+
+        public void updateEpisode(int EpisodeId)
+        {
+            Episode currentEpisode = db.Episodes.Where(x => x.EpisodeId == EpisodeId).First();
+            currentEpisode.Watched = true;
+
+            db.SaveChanges();
+
+        }
+
+
     }
 
 }

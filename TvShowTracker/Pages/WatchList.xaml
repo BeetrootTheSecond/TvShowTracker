@@ -9,38 +9,13 @@
       Title="WatchList">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-        <Grid VerticalAlignment="Top" >
+        <Grid Name ="WatchlistGrid" VerticalAlignment="Top" >
             <!-- Rows-->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                <RowDefinition Height="50"></RowDefinition>
-                
-
-            </Grid.RowDefinitions>
-            <!-- Columns-->
+           <!-- Columns-->
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-
-
-            <Border BorderBrush="#FF179AC8" BorderThickness="1" Grid.Row="0" Margin="5" Background="LightGray"/>
-            <Border BorderBrush="#FF179AC8" BorderThickness="1" Grid.Row="1" Margin="5" Background="LightGray"/>
-            <Border BorderBrush="#FF179AC8" BorderThickness="1" Grid.Row="2" Margin="5" Background="LightGray"/>
-            <Border BorderBrush="#FF179AC8" BorderThickness="1" Grid.Row="3" Margin="5" Background="LightGray"/>
-            <Border BorderBrush="#FF179AC8" BorderThickness="1" Grid.Row="4" Margin="5" Background="LightGray"/>
-            <Border BorderBrush="#FF179AC8" BorderThickness="1" Grid.Row="5" Margin="5" Background="LightGray"/>
-            <Border BorderBrush="#FF179AC8" BorderThickness="1" Grid.Row="6" Margin="5" Background="LightGray"/>
-            <Border BorderBrush="#FF179AC8" BorderThickness="1" Grid.Row="7" Margin="5" Background="LightGray"/>
-            <Border BorderBrush="#FF179AC8" BorderThickness="1" Grid.Row="8" Margin="5" Background="LightGray"/>
-            <Border BorderBrush="#FF179AC8" BorderThickness="1" Grid.Row="9" Margin="5" Background="LightGray"/>
-            
+          
         </Grid>
     </ScrollViewer>
 </Page>
