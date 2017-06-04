@@ -24,7 +24,8 @@ namespace TvShowTracker
         public MainWindow()
         {
             InitializeComponent();
-            frame.NavigationService.Navigate(new ShowsTreeView(60735));
+            //frame.NavigationService.Navigate(new ShowsTreeView(60735)); // the flash 60735 38472
+            frame.NavigationService.Navigate(new WatchList());
         }
     }
 }

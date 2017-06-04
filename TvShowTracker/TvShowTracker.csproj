@@ -35,11 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,6 +72,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\201706041718363_InitialCreate.cs" />
+    <Compile Include="Migrations\201706041718363_InitialCreate.Designer.cs">
+      <DependentUpon>201706041718363_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706041722346_Set up.cs" />
+    <Compile Include="Migrations\201706041722346_Set up.Designer.cs">
+      <DependentUpon>201706041722346_Set up.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706041724153_AddedseasonTable.cs" />
+    <Compile Include="Migrations\201706041724153_AddedseasonTable.Designer.cs">
+      <DependentUpon>201706041724153_AddedseasonTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706041805387_Initlist.cs" />
+    <Compile Include="Migrations\201706041805387_Initlist.Designer.cs">
+      <DependentUpon>201706041805387_Initlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\Shows.xaml.cs">
       <DependentUpon>Shows.xaml</DependentUpon>
     </Compile>
@@ -72,6 +98,7 @@
     <Compile Include="Pages\WatchList.xaml.cs">
       <DependentUpon>WatchList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShowDatabase.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -111,6 +138,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201706041718363_InitialCreate.resx">
+      <DependentUpon>201706041718363_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706041722346_Set up.resx">
+      <DependentUpon>201706041722346_Set up.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706041724153_AddedseasonTable.resx">
+      <DependentUpon>201706041724153_AddedseasonTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706041805387_Initlist.resx">
+      <DependentUpon>201706041805387_Initlist.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -12,8 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TMDbLib.Client;
-using TMDbLib.Objects.TvShows;
+
 
 
 
@@ -27,33 +26,39 @@ namespace TvShowTracker.Pages
         public ShowsTreeView(int id)
         {
             InitializeComponent();
-            var apikey = "dc21e8c3cb3e79d39f776b428b13222c";
-            TMDbClient client = new TMDbClient(apikey);
-            TvShow tvshow = client.GetTvShowAsync(id).Result;
 
-            TreeViewItem treeItem = null;
+            //var apikey = "dc21e8c3cb3e79d39f776b428b13222c";
+            //TMDbClient client = new TMDbClient(apikey);
+            //TvShow tvshow = client.GetTvShowAsync(id).Result;
 
-            treeItem = new TreeViewItem();
+            TreeViewItem treeItem = new TreeViewItem();
+
+            ShowData show = new ShowData();
+
+            Show tvshow = show.getShow(id);
+            
             treeItem.Header = tvshow.Name;
+
             foreach (var season in tvshow.Seasons)
             {
-                
+
                 TreeViewItem CurrentSeason = new TreeViewItem() { Header = "Season " + season.SeasonNumber };
                 if (season.EpisodeCount == 0)
                     break;
 
-                    foreach (var newEpisode in client.GetTvSeasonAsync(id, season.SeasonNumber).Result.Episodes)
+                foreach (var newEpisode in season.Episodes)
+                {
+                    CurrentSeason.Items.Add(new TreeViewItem()
                     {
-                        CurrentSeason.Items.Add(new TreeViewItem()
-                        {
-                            Header = String.Format("S{0} E{1} {2}",
-                                newEpisode.SeasonNumber,
-                                newEpisode.EpisodeNumber,
-                                newEpisode.Name)
-                        });
+                        Header = String.Format("S{0} E{1} {2}",
+                            season.SeasonNumber,
+                            newEpisode.EpisodeNumber,
+                            newEpisode.Name)
+                    });
                 }
                 treeItem.Items.Add(CurrentSeason);
             }
+            //}
             ShowsTV.Items.Add(treeItem);
         }
     }
