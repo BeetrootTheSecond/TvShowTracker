@@ -23,6 +23,7 @@ namespace TvShowTracker.Pages
     /// </summary>
     public partial class ShowsTreeView : Page
     {
+
         public ShowsTreeView(int id)
         {
             InitializeComponent();
@@ -47,7 +48,9 @@ namespace TvShowTracker.Pages
                 {
                     CurrentSeason.Items.Add(new TreeViewItem()
                     {
-                        Header = String.Format("S{0} E{1} {2}",
+                        
+                        Header = 
+                        String.Format("S{0} E{1} {2}",
                             season.SeasonNumber,
                             newEpisode.EpisodeNumber,
                             newEpisode.Name)

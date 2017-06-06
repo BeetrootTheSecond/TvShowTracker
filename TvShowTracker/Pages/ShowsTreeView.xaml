@@ -9,6 +9,6 @@
       Title="ShowsTreeView">
 
     <Grid>
-        <TreeView x:Name="ShowsTV" />
+        <TreeView x:Name="ShowsTV" ItemsSource="{x:Static local:ShowsTreeView.showList}"/>
     </Grid>
 </Page>
