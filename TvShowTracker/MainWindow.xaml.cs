@@ -27,5 +27,20 @@ namespace TvShowTracker
             //frame.NavigationService.Navigate(new ShowsTreeView(60735)); // the flash 60735 38472
             frame.NavigationService.Navigate(new WatchList());
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            frame.NavigationService.Navigate(new WatchList());
+        }
+
+        private void Shows_Click(object sender, RoutedEventArgs e)
+        {
+            frame.NavigationService.Navigate(new ShowsTreeView(65294)); // the flash 60735 38472
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+            frame.NavigationService.Navigate(new Search());
+        }
     }
 }

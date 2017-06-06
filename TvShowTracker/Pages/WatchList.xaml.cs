@@ -22,20 +22,33 @@ namespace TvShowTracker
     {
         public WatchList()
         {
+
+
             InitializeComponent();
+            setup();
+        }
+        public void setup() { 
             ShowData shows = new ShowData();
 
+            this.WatchlistGrid.RowDefinitions.Clear();
 
-            List<Show> allShows = shows.getWatchlist();
+            var allShows = shows.getWatchlist();
 
 
             foreach (var currentshows in allShows)
             {
+
                 foreach (var currentseason in currentshows.Seasons)
                 {
-                    foreach (var currentEpisode in currentseason.Episodes)
+                    if (currentseason.EpisodeCount > 0)
                     {
-                        WatchlistBox(currentshows, currentseason, currentEpisode);
+                        foreach (var currentEpisode in currentseason.Episodes)
+                        {
+                            if (currentEpisode.Watched == false)
+                            {
+                                WatchlistBox(currentshows, currentseason, currentEpisode);
+                            }
+                        }
                     }
 
                 }
@@ -45,13 +58,12 @@ namespace TvShowTracker
         }
 
 
-
         public void WatchlistBox(Show currentshow, Season currentSeason, Episode currentEpisode)
         {
             RowDefinition currentRow = new RowDefinition();
 
-            currentRow.Height = new GridLength(50);
-            //currentRow.MinHeight = new GridLength(50);
+            //currentRow.Height = new GridLength(50);
+            currentRow.MinHeight = 50;
 
             this.WatchlistGrid.RowDefinitions.Add(currentRow);
 
@@ -64,7 +76,7 @@ namespace TvShowTracker
             Grid layout = new Grid();
             layout.RowDefinitions.Add(new RowDefinition());
             layout.RowDefinitions.Add(new RowDefinition());
-            layout.ColumnDefinitions.Add(new ColumnDefinition());
+            layout.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(80) });
             layout.ColumnDefinitions.Add(new ColumnDefinition());
 
             Button watched = new Button();
@@ -78,11 +90,22 @@ namespace TvShowTracker
             watched.Click += delegate
             {
 
+
+                ShowData shows = new ShowData();
+                shows.updateEpisode(currentEpisode.EpisodeId);
+
+                this.WatchlistGrid.Children.Remove(Episode);
+                //layout.RowDefinitions.Remove(currentRow);
+
+                //this.WatchlistGrid.RowDefinitions.Clear();
+                //this.WatchlistGrid.RowDefinitions.RemoveAt(this.WatchlistGrid.RowDefinitions.IndexOf(currentRow));
+                //setup();
             };
 
 
             TextBlock Title = new TextBlock();
             Title.Text = currentshow.Name;
+            Title.TextWrapping = System.Windows.TextWrapping.Wrap;
             //Title.Margin = new Thickness(5);
             Grid.SetColumn(Title, 0);
             Grid.SetRow(Title, 0);
@@ -97,6 +120,7 @@ namespace TvShowTracker
 
             TextBlock EpisodeName = new TextBlock();
             EpisodeName.Text = currentEpisode.Name;
+            EpisodeName.TextWrapping = System.Windows.TextWrapping.Wrap;
             //Title.Margin = new Thickness(5);
             Grid.SetColumn(EpisodeName, 1);
             Grid.SetRow(EpisodeName, 1);
@@ -111,7 +135,7 @@ namespace TvShowTracker
 
             // return currentRow;
         }
-        
-        
+
+
     }
 }

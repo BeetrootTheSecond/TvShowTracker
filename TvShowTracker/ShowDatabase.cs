@@ -124,10 +124,13 @@ namespace TvShowTracker
 
         public List<Show> getWatchlist()
         {
+
+            //string query = "Select* FROM Shows Right JOIN Seasons ON Shows.ShowId = Seasons.Show_ShowId RIGHT JOIN Episodes ON Seasons.SeasonId = Episodes.Season_SeasonId WHERE Episodes.Watched = 0";
+           // return db.Shows.SqlQuery(query).ToList();
             return db.Shows.Where(x =>
                 x.Seasons.Where(y =>
-                    y.Episodes.Where(zz =>
-                        zz.Watched == false
+                    y.Episodes.Where(z =>
+                        z.Watched == false
                     ).Count() > 0
                 ).Count() > 0
             ).ToList();

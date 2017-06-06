@@ -8,6 +8,47 @@
         Title="Tvshow Tracker" Height="500" Width="300" MaxWidth="300" MinWidth ="300" >
     <Grid>
         <Frame x:Name="frame" Content="Frame" Margin="10,69,10,10" NavigationUIVisibility="Hidden"/>
+        <Grid Height="69" VerticalAlignment="Top">
+            <!-- Row-->
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <!-- Columns-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="#f44242" BorderThickness="1" Grid.Row="0" Margin="2" Background="LightGray">
+                <Button Click="Button_Click">
+                    <Label Content="Watchlist" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                </Button>
+                
+                
+            </Border>
+            <Border BorderBrush="#f44242" BorderThickness="1" Grid.Row="1" Margin="2" Background="LightGray">
+                <Button Name="Shows" Click="Shows_Click">
+                    <Label Content="Shows" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                </Button>
+            </Border>
+
+            <Border BorderBrush="#f44242" BorderThickness="1" Grid.Row="0" Grid.Column="1" Margin="2" Background="LightGray">
+                <Button Name="Search" Click="Search_Click">
+                <Label Content="Search" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                </Button>
+            </Border>
+            <Border BorderBrush="#f44242" BorderThickness="1" Grid.Row="1" Grid.Column="1" Margin="2" Background="LightGray">
+                <Label Content="Watchlist" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            </Border>
+
+            <Border BorderBrush="#f44242" BorderThickness="1" Grid.Row="0" Grid.Column="2" Margin="2" Background="LightGray">
+                <Label Content="Watchlist" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            </Border>
+            <Border BorderBrush="#f44242" BorderThickness="1" Grid.Row="1" Grid.Column="2" Margin="2" Background="LightGray">
+                <Label Content="Watchlist" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            </Border> 
+        </Grid>
 
     </Grid>
 </Window>

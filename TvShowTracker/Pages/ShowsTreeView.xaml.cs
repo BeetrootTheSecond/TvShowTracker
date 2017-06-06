@@ -27,10 +27,7 @@ namespace TvShowTracker.Pages
         {
             InitializeComponent();
 
-            //var apikey = "dc21e8c3cb3e79d39f776b428b13222c";
-            //TMDbClient client = new TMDbClient(apikey);
-            //TvShow tvshow = client.GetTvShowAsync(id).Result;
-
+            
             TreeViewItem treeItem = new TreeViewItem();
 
             ShowData show = new ShowData();
