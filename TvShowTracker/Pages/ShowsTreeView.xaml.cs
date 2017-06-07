@@ -23,7 +23,8 @@ namespace TvShowTracker.Pages
     /// </summary>
     public partial class ShowsTreeView : Page
     {
-
+        static public List<TheShow> showsList = new List<TheShow>();
+        
         public ShowsTreeView(int id)
         {
             InitializeComponent();
@@ -61,5 +62,20 @@ namespace TvShowTracker.Pages
             //}
             ShowsTV.Items.Add(treeItem);
         }
+    }
+
+    public class TheShow
+    {
+        public TheShow()
+
+        {
+            this.Tvshow = new List<Show>();
+        }
+
+
+        public List<Show> Tvshow
+
+        { get; set; }
+
     }
 }

@@ -27,13 +27,17 @@
                         <ColumnDefinition Width="50*"></ColumnDefinition>
                         <ColumnDefinition Width="20*"/>
                     </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0"> </TextBox>
-                <Button  Content="Search" Grid.Column="1" Name="SearchButton"></Button>
+                <TextBox x:Name ="SearchBox" Grid.Column="0" TextChanged="SearchBox_TextChanged"> </TextBox>
+                <Button  Content="Search" Grid.Column="1" Name="SearchButton" Click="SearchButton_Click"></Button>
                 </Grid>
 
         </Border>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-            <Grid>
+            <Grid x:Name="SearchDisplay">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                    <ColumnDefinition Width="50*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
                 
             </Grid>
         </ScrollViewer>

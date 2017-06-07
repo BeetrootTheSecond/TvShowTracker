@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TvShowTracker"
         mc:Ignorable="d"
-        Title="Tvshow Tracker" Height="500" Width="300" MaxWidth="300" MinWidth ="300" >
+        Title="Tvshow Tracker" Height="500" Width="300" MaxWidth="500" MinWidth ="498" >
     <Grid>
         <Frame x:Name="frame" Content="Frame" Margin="10,69,10,10" NavigationUIVisibility="Hidden"/>
         <Grid Height="69" VerticalAlignment="Top">

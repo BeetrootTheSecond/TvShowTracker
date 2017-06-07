@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TMDbLib.Client;
+using TMDbLib.Objects.General;
+using TMDbLib.Objects.Search;
 using TMDbLib.Objects.TvShows;
 
 namespace TvShowTracker
@@ -23,6 +25,7 @@ namespace TvShowTracker
         public string Name { get; set; }
         public string Overview { get; set; }
         public int TmdbId { get; set; }
+        public string PosterUrl { get; set; }
 
         public virtual List<Season> Seasons { get; set; }
 
@@ -156,6 +159,28 @@ namespace TvShowTracker
 
         }
 
+
+
+        public List<Show> Textsearch(string search)
+        {
+
+            List<Show> searchShow = new List<Show>();
+
+            TMDbClient client = new TMDbClient(apikey);
+
+            SearchContainer<SearchTv> tvshow = client.SearchTvShowAsync(search).Result;
+            foreach(var result in tvshow.Results)
+            {
+                Show tempshow = new Show();
+                tempshow.Name = result.Name;
+                tempshow.Overview = result.Overview;
+                tempshow.TmdbId = result.Id;
+                tempshow.PosterUrl = result.PosterPath;
+                searchShow.Add(tempshow);
+            }
+
+            return searchShow;
+        }
 
     }
 

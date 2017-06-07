@@ -88,6 +88,10 @@
     <Compile Include="Migrations\201706041805387_Initlist.Designer.cs">
       <DependentUpon>201706041805387_Initlist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706061352151_AddPosterUrl.cs" />
+    <Compile Include="Migrations\201706061352151_AddPosterUrl.Designer.cs">
+      <DependentUpon>201706061352151_AddPosterUrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Pages\Search.xaml.cs">
       <DependentUpon>Search.xaml</DependentUpon>
@@ -156,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706041805387_Initlist.resx">
       <DependentUpon>201706041805387_Initlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706061352151_AddPosterUrl.resx">
+      <DependentUpon>201706061352151_AddPosterUrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
