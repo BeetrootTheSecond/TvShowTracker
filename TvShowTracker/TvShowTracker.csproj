@@ -93,16 +93,16 @@
       <DependentUpon>201706061352151_AddPosterUrl.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Pages\Search.xaml.cs">
+    <Compile Include="Search.xaml.cs">
       <DependentUpon>Search.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Shows.xaml.cs">
-      <DependentUpon>Shows.xaml</DependentUpon>
+    <Compile Include="ShowDetails.xaml.cs">
+      <DependentUpon>ShowDetails.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\ShowsTreeView.xaml.cs">
+    <Compile Include="ShowsTreeView.xaml.cs">
       <DependentUpon>ShowsTreeView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\WatchList.xaml.cs">
+    <Compile Include="WatchList.xaml.cs">
       <DependentUpon>WatchList.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShowDatabase.cs" />
@@ -118,19 +118,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\Search.xaml">
+    <Page Include="Search.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Shows.xaml">
+    <Page Include="ShowDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\ShowsTreeView.xaml">
+    <Page Include="ShowsTreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\WatchList.xaml">
+    <Page Include="WatchList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

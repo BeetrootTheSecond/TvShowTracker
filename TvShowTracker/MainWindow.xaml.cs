@@ -24,23 +24,38 @@ namespace TvShowTracker
         public MainWindow()
         {
             InitializeComponent();
+
             //frame.NavigationService.Navigate(new ShowsTreeView(60735)); // the flash 60735 38472
-            frame.NavigationService.Navigate(new WatchList());
+
+            frame.Content = new Search();
+            NavigationHelper.NavigationService = frame.NavigationService;
+            //frame.NavigationService.Navigate(new Search());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            frame.NavigationService.Navigate(new WatchList());
+            //frame.NavigationService.Navigate(new WatchList());
+            frame.Content = new WatchList();
+            NavigationHelper.NavigationService = frame.NavigationService;
         }
 
         private void Shows_Click(object sender, RoutedEventArgs e)
         {
-            frame.NavigationService.Navigate(new ShowsTreeView(65294)); // the flash 60735 38472
+            //frame.NavigationService.Navigate(new ShowsTreeView(65294));
+            frame.Content = new ShowsTreeView(65294);
+            NavigationHelper.NavigationService = frame.NavigationService;// the flash 60735 38472
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-            frame.NavigationService.Navigate(new Search());
+            frame.Content = new Search();
+            NavigationHelper.NavigationService = frame.NavigationService;
         }
+
+        
+    }
+    public static class NavigationHelper
+    {
+        public static NavigationService NavigationService { get; set; }
     }
 }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TvShowTracker.Pages
+namespace TvShowTracker
 {
     /// <summary>
     /// Interaction logic for Search.xaml
@@ -125,8 +125,16 @@ namespace TvShowTracker.Pages
                     Grid.SetColumn(showPoster, columnsNumber);
                     this.SearchDisplay.Children.Add(showPoster);
 
+                    Button details = new Button();
+                    //details.Visibility = Visibility.Hidden;
+                    details.Opacity = 0.2;
+                    Grid.SetRow(details, SearchDisplay.RowDefinitions.IndexOf(currentRow));
+                    Grid.SetColumn(details, columnsNumber);
+                    this.SearchDisplay.Children.Add(details);
+                    details.Click += delegate
+                    {
 
-
+                    };
 
 
 
