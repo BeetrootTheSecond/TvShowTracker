@@ -32,9 +32,9 @@ namespace TvShowTracker.Pages
             
             TreeViewItem treeItem = new TreeViewItem();
 
-            ShowData show = new ShowData();
+            //ShowData show = new ShowData();
 
-            Show tvshow = show.getShow(id);
+            Show tvshow = ShowData.getShow(id);
             
             treeItem.Header = tvshow.Name;
 

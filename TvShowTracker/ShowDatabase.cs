@@ -26,6 +26,8 @@ namespace TvShowTracker
         public string Overview { get; set; }
         public int TmdbId { get; set; }
         public string PosterUrl { get; set; }
+        public string BackDrop { get; set; }
+        
 
         public virtual List<Season> Seasons { get; set; }
 
@@ -67,11 +69,11 @@ namespace TvShowTracker
 
     }
 
-    public class ShowData
+    public static class ShowData
     {
         public static ShowDatabase db = new ShowDatabase();
-        private string apikey = "dc21e8c3cb3e79d39f776b428b13222c";
-        public Show getShow(int TmdbID)
+        private static string apikey = "dc21e8c3cb3e79d39f776b428b13222c";
+        public static Show getShow(int TmdbID)
         {
 
 
@@ -123,13 +125,29 @@ namespace TvShowTracker
             return db.Shows.Where(x => x.TmdbId == TmdbID).FirstOrDefault();
         }
 
-
-
-        public List<Episode> getWatchlist()
+        public static Show TheShowDetail(int id)
         {
+            TMDbClient client = new TMDbClient(apikey);
 
-            //string query = "Select* FROM Shows Right JOIN Seasons ON Shows.ShowId = Seasons.Show_ShowId RIGHT JOIN Episodes ON Seasons.SeasonId = Episodes.Season_SeasonId WHERE Episodes.Watched = 0";
-            // return db.Shows.SqlQuery(query).ToList();
+            Show tempShow = new Show();
+            TvShow tvshow = client.GetTvShowAsync(id).Result;
+
+            tempShow.Name = tvshow.Name;
+            tempShow.Overview = tvshow.Overview;
+            tempShow.TmdbId = id;
+            tempShow.PosterUrl = tvshow.PosterPath;
+            tempShow.BackDrop = tvshow.BackdropPath;
+
+
+
+
+            return tempShow;
+        }
+
+
+        public static List<Episode> getWatchlist()
+        {
+            
             //return db.Shows.Where(x =>
             //    x.Seasons.Where(y =>
             //        y.Episodes.Where(z =>
@@ -141,16 +159,16 @@ namespace TvShowTracker
             return db.Episodes.Where(x => x.Watched == false).ToList();
         }
 
-        public Season getWatchlistSeason(int Eid)
+        public static Season getWatchlistSeason(int Eid)
         {
             return db.seasons.Where(x => x.Episodes.Where(y => y.EpisodeId == Eid).Count() > 0).FirstOrDefault();
         }
-        public Show getWatchlistShow(int Sid)
+        public static Show getWatchlistShow(int Sid)
         {
 
             return db.Shows.Where(x => x.Seasons.Where(y => y.SeasonId == Sid).Count() > 0).FirstOrDefault();
         }
-        public void updateEpisode(int EpisodeId)
+        public static void updateEpisode(int EpisodeId)
         {
             Episode currentEpisode = db.Episodes.Where(x => x.EpisodeId == EpisodeId).First();
             currentEpisode.Watched = true;
@@ -158,10 +176,8 @@ namespace TvShowTracker
             db.SaveChanges();
 
         }
-
-
-
-        public List<Show> Textsearch(string search)
+        
+        public static List<Show> Textsearch(string search)
         {
 
             List<Show> searchShow = new List<Show>();

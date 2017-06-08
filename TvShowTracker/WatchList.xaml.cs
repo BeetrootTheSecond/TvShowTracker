@@ -21,7 +21,7 @@ namespace TvShowTracker
    
     public partial class WatchList : Page
     {
-        public ShowData shows = new ShowData();
+        //public ShowData shows = new ShowData();
         public WatchList()
         {
 
@@ -34,7 +34,7 @@ namespace TvShowTracker
 
             this.WatchlistGrid.RowDefinitions.Clear();
 
-            var allShows = shows.getWatchlist();
+            var allShows = ShowData.getWatchlist();
             
 
             //foreach (var currentshows in allShows)
@@ -48,7 +48,7 @@ namespace TvShowTracker
                         {
                             if (currentEpisode.Watched == false)
                             {
-                                WatchlistBox(shows.getWatchlistSeason(currentEpisode.EpisodeId),currentEpisode);
+                                WatchlistBox(ShowData.getWatchlistSeason(currentEpisode.EpisodeId),currentEpisode);
                             }
                         }
             //        }
@@ -69,7 +69,7 @@ namespace TvShowTracker
             
             this.WatchlistGrid.RowDefinitions.Add(currentRow);
 
-            var currentshow = shows.getWatchlistShow(currentSeason.SeasonId);
+            var currentshow = ShowData.getWatchlistShow(currentSeason.SeasonId);
 
             Border Episode = new Border();
             Episode.BorderBrush = Brushes.Black;
@@ -95,8 +95,8 @@ namespace TvShowTracker
             {
 
 
-                ShowData shows = new ShowData();
-                shows.updateEpisode(currentEpisode.EpisodeId);
+                //ShowData shows = new ShowData();
+                ShowData.updateEpisode(currentEpisode.EpisodeId);
 
                 this.WatchlistGrid.Children.Remove(Episode);
                 //layout.RowDefinitions.Remove(currentRow);
